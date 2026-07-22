@@ -11,11 +11,16 @@ content:
     fields:
       - name: photos
         label: Photos
-        type: list
+        type: object
+        list:
+          collapsible: true
+          summary: "{caption}"
         fields:
           - name: image
             label: Photo
             type: image
+            options:
+              path: gallery
           - name: caption
             label: Caption
             type: string
@@ -24,10 +29,9 @@ content:
             type: select
             options:
               values:
-                - default
-                - tall
-                - wide
-              labels:
-                - Standard
-                - Tall
-                - Wide
+                - name: default
+                  label: Standard
+                - name: tall
+                  label: Tall
+                - name: wide
+                  label: Wide
