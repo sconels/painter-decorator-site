@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Professional painting and decorating for homes and businesses. Interior, exterior, wallpaper, and more. Free quotes across your local area."
+      content="E G Nelson Painters — professional painting and decorating for homes and businesses. Interior, exterior, wallpaper, and more. Free quotes across your local area."
     />
-    <title>Brush &amp; Coat | Painter &amp; Decorator</title>
+    <title>E G Nelson Painters | Painter &amp; Decorator</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,7 +24,7 @@
       <div class="container header-inner">
         <a class="logo" href="#top">
           <span class="logo-mark" aria-hidden="true"></span>
-          <span class="logo-text">Brush &amp; Coat</span>
+          <span class="logo-text">E G Nelson Painters</span>
         </a>
 
         <button
@@ -61,7 +61,7 @@
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact">Request a free quote</a>
-              <a class="btn btn-secondary" href="tel:+440000000000">Call 0000 000 0000</a>
+              <a class="btn btn-secondary" href="tel:+447813888572">Call 07813 888572</a>
             </div>
             <ul class="trust-list">
               <li>Fully insured</li>
@@ -139,7 +139,7 @@
             <p class="eyebrow">Why choose us</p>
             <h2>Reliable, local, and easy to work with</h2>
             <p>
-              Brush &amp; Coat is a small, owner-run decorating business serving
+              E G Nelson Painters is a small, owner-run decorating business serving
               homeowners and local businesses. We turn up when we say we will,
               keep you updated, and leave your home clean at the end of each day.
             </p>
@@ -174,25 +174,15 @@
             <p class="eyebrow">Recent work</p>
             <h2>Before &amp; after transformations</h2>
             <p>
-              Replace these placeholders with photos of your own projects when
-              you are ready — the layout is built for real gallery images.
+              A selection of recent interior and exterior projects. New photos
+              can be added at any time — the gallery updates automatically.
             </p>
           </div>
 
-          <div class="gallery-grid">
-            <figure class="gallery-item gallery-item-tall">
-              <div class="gallery-placeholder">Living room repaint</div>
-            </figure>
-            <figure class="gallery-item">
-              <div class="gallery-placeholder">Kitchen refresh</div>
-            </figure>
-            <figure class="gallery-item">
-              <div class="gallery-placeholder">Exterior masonry</div>
-            </figure>
-            <figure class="gallery-item gallery-item-wide">
-              <div class="gallery-placeholder">Feature wallpaper wall</div>
-            </figure>
-          </div>
+          <p class="gallery-empty" id="gallery-empty" hidden>
+            Project photos coming soon.
+          </p>
+          <div class="gallery-grid" id="gallery-grid"></div>
         </div>
       </section>
 
@@ -251,11 +241,11 @@
             <ul class="contact-details">
               <li>
                 <span>Phone</span>
-                <a href="tel:+440000000000">0000 000 0000</a>
+                <a href="tel:+447813888572">07813 888572</a>
               </li>
               <li>
                 <span>Email</span>
-                <a href="mailto:hello@brushandcoat.example">hello@brushandcoat.example</a>
+                <a href="mailto:egnelson41@yahoo.co.uk">egnelson41@yahoo.co.uk</a>
               </li>
               <li>
                 <span>Area</span>
@@ -264,7 +254,14 @@
             </ul>
           </div>
 
-          <form class="contact-form" action="#" method="post">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/egnelson41@yahoo.co.uk"
+            method="POST"
+          >
+            <input type="hidden" name="_subject" value="New website enquiry — E G Nelson Painters" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
             <label>
               Name
               <input type="text" name="name" autocomplete="name" required />
@@ -302,8 +299,8 @@
               Send enquiry
             </button>
             <p class="form-note">
-              This form is a placeholder. We can connect it to email or a
-              form service when you are ready to go live.
+              Enquiries go straight to egnelson41@yahoo.co.uk. We aim to reply
+              within one working day.
             </p>
           </form>
         </div>
@@ -315,7 +312,7 @@
         <div>
           <a class="logo logo-footer" href="#top">
             <span class="logo-mark" aria-hidden="true"></span>
-            <span class="logo-text">Brush &amp; Coat</span>
+            <span class="logo-text">E G Nelson Painters</span>
           </a>
           <p>Professional painting &amp; decorating for local homes and businesses.</p>
         </div>
@@ -324,10 +321,11 @@
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </div>
-        <p class="footer-copy">&copy; <span id="year"></span> Brush &amp; Coat. All rights reserved.</p>
+        <p class="footer-copy">&copy; <span id="year"></span> E G Nelson Painters. All rights reserved.</p>
       </div>
     </footer>
 
+    <script src="/js/gallery.js"></script>
     <script src="/js/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,33 @@
+media:
+  input: gallery
+  output: /gallery
+
+content:
+  - name: gallery
+    label: Gallery photos
+    type: file
+    path: data/gallery.json
+    format: json
+    fields:
+      - name: photos
+        label: Photos
+        type: list
+        fields:
+          - name: image
+            label: Photo
+            type: image
+          - name: caption
+            label: Caption
+            type: string
+          - name: layout
+            label: Size on page
+            type: select
+            options:
+              values:
+                - default
+                - tall
+                - wide
+              labels:
+                - Standard
+                - Tall
+                - Wide

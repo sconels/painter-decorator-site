@@ -20,9 +20,3 @@ if (navToggle && siteNav) {
   });
 }
 
-document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  alert(
-    "Thanks for your enquiry. Connect this form to email or a form service when you go live."
-  );
-});
