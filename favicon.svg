@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brush and Coat">
+  <rect width="64" height="64" rx="16" fill="#1b3a4b"/>
+  <path d="M18 42c8-10 18-12 28-8-4 10-14 16-28 8z" fill="#c45c26"/>
+  <path d="M22 24h20v6H22z" fill="#e7a26d"/>
+  <path d="M26 18h12v8H26z" fill="#f7f4ef"/>
+</svg>
