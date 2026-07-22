@@ -5,7 +5,7 @@ async function loadGallery() {
   if (!galleryGrid) return;
 
   try {
-    const response = await fetch("/data/gallery.json");
+    const response = await fetch("/data/gallery.json", { cache: "no-store" });
     if (!response.ok) throw new Error("Gallery data unavailable");
 
     const data = await response.json();
