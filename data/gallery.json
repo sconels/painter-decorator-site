@@ -1,3 +1,49 @@
 {
-  "photos": []
+  "photos": [
+    {
+      "image": "/gallery/BlueWall_1.jpeg",
+      "caption": "Living Room Repaint",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/BlueWall_2.jpeg",
+      "caption": "Living Room Repaint",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_Before_1.jpeg",
+      "caption": "Exterior Prior to Work",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_After_1.jpeg",
+      "caption": "Exterior After Work",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_Before_2.jpeg",
+      "caption": "Garden Room Prior",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_After_2.jpeg",
+      "caption": "Garden Room Refresh",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_Floor_Before1.jpeg",
+      "caption": "Garden Tiling",
+      "layout": "default"
+    },
+    {
+      "image": "/gallery/Exterior_Floor_After1.jpeg",
+      "caption": "Garden Tiling",
+      "layout": "tall"
+    },
+    {
+      "image": "/gallery/Flooring_1.jpeg",
+      "caption": "Flooring",
+      "layout": "default"
+    }
+  ]
 }
