@@ -237,15 +237,11 @@ async function sendInvoiceEmail(env, invoice) {
   const payload = {
     from: fromAddress,
     to: [invoice.customer_email],
+    bcc: [businessEmail],
     reply_to: businessEmail,
     subject,
     html,
   };
-
-  // Resend's test sender only allows delivery to your Resend account email.
-  if (!usingTestSender) {
-    payload.bcc = [businessEmail];
-  }
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
