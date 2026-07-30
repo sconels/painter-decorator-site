@@ -250,10 +250,29 @@ function renderReviews(site) {
   </section>`;
 }
 
+function sanitizeMapEmbedUrl(value) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+
+  if (raw.includes("<iframe")) {
+    const match = raw.match(/src=["']([^"']+)["']/i);
+    if (match?.[1]) {
+      return match[1].replace(/&amp;/g, "&");
+    }
+  }
+
+  return raw.replace(/&amp;/g, "&");
+}
+
 function renderMap(site) {
   if (!site.sections?.map || !site.map?.enabled) return "";
 
   const map = site.map ?? {};
+  const embedUrl = sanitizeMapEmbedUrl(map.embedUrl);
+
+  if (!embedUrl.startsWith("https://www.google.com/maps/embed")) {
+    return "";
+  }
 
   return `<section class="section section-muted" id="area">
     <div class="container">
@@ -264,10 +283,10 @@ function renderMap(site) {
       </div>
       <div class="map-embed">
         <iframe
-          src="${escapeHtml(map.embedUrl)}"
+          src="${escapeHtml(embedUrl)}"
           title="${escapeHtml(map.title)}"
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerpolicy="strict-origin-when-cross-origin"
           allowfullscreen
         ></iframe>
       </div>

@@ -265,7 +265,7 @@ content:
                 label: Section intro
                 type: text
               - name: embedUrl
-                label: Google Maps embed URL
+                label: Google Maps embed URL (src link only, not full iframe)
                 type: text
 
           - name: contact
