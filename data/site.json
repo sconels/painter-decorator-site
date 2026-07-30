@@ -8,7 +8,7 @@
   },
   "siteUrl": "https://painter-decorator-site.snelson633.workers.dev",
   "social": {
-    "title": "E.g. Nelson, Painter and Decorator",
+    "title": "E G Nelson, Painter and Decorator",
     "description": "Trusted painting & decorating in Cambridge and surrounding areas. Interior, exterior and commercial work. Free quotes — call 07813 888572.",
     "image": "/social/og-image.png",
     "imageAlt": "Eddie Nelson — Painter and Decorator, Cambridge"
@@ -96,9 +96,7 @@
   },
   "reviews": {
     "eyebrow": "Reviews",
-    "title": "What customers say",
-    "emptyNote": "Customer reviews will appear here once they are collected.",
-    "items": []
+    "title": "What customers say"
   },
   "map": {
     "enabled": true,
