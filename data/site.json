@@ -7,8 +7,8 @@
     "tagline": "Professional painting & decorating for local homes and businesses."
   },
   "design": {
-    "colorTheme": "warm",
-    "fontStyle": "classic"
+    "colorTheme": "forest",
+    "fontStyle": "modern"
   },
   "sections": {
     "hero": true,
@@ -21,7 +21,7 @@
   "hero": {
     "eyebrow": "Local painter & decorator",
     "headline": "Fresh finishes for homes and businesses you can be proud of.",
-    "lead": "Interior and exterior painting, wallpapering, and decorating — done neatly, on time, and with respect for your space.",
+    "lead": "Interior and exterior, painting and decorating — done neatly, on time, and with respect for your space.",
     "primaryButton": "Request a free quote",
     "showVisual": true,
     "visualTagline": "Quality finishes, every time.",
@@ -47,10 +47,6 @@
         "description": "Weather-ready coatings for render, masonry, fascias, and woodwork to protect and refresh your home."
       },
       {
-        "title": "Wallpaper & feature walls",
-        "description": "Pattern matching, lining, and smooth hanging for a professional look that stays put."
-      },
-      {
         "title": "Commercial decorating",
         "description": "Offices, shops, and rental properties — minimal disruption, clear timelines, and tidy sites."
       }
@@ -68,9 +64,18 @@
     ],
     "showStats": true,
     "stats": [
-      { "value": "500+", "label": "Rooms refreshed" },
-      { "value": "4.9", "label": "Average review score" },
-      { "value": "100%", "label": "Quote satisfaction" }
+      {
+        "value": "500+",
+        "label": "Rooms refreshed"
+      },
+      {
+        "value": "4.9",
+        "label": "Average review score"
+      },
+      {
+        "value": "100%",
+        "label": "Quote satisfaction"
+      }
     ]
   },
   "gallery": {
