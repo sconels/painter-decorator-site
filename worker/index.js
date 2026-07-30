@@ -29,10 +29,13 @@ async function handleApi(request, env, url) {
   }
 
   if (path === "/api/setup-status" && request.method === "GET") {
+    const fromAddress = env.RESEND_FROM || "onboarding@resend.dev";
     return json({
       adminPassword: Boolean(env.ADMIN_PASSWORD),
       sessionSecret: Boolean(env.SESSION_SECRET),
       resendApiKey: Boolean(env.RESEND_API_KEY),
+      resendFromConfigured: Boolean(env.RESEND_FROM),
+      usingTestSender: fromAddress.includes("@resend.dev"),
       database: Boolean(env.DB),
     });
   }
@@ -221,6 +224,12 @@ async function sendInvoiceEmail(env, invoice) {
   const businessEmail = env.BUSINESS_EMAIL || "egnelson41@yahoo.co.uk";
   const fromAddress = env.RESEND_FROM || "onboarding@resend.dev";
   const usingTestSender = fromAddress.includes("@resend.dev");
+
+  if (usingTestSender) {
+    throw new Error(
+      "RESEND_FROM is not set. Add it in Cloudflare Worker variables using your verified domain, e.g. Eddie Nelson <invoices@yourdomain.co.uk>."
+    );
+  }
   const amount = formatMoney(invoice.amount_pence);
   const invoiceDate = formatDate(invoice.created_at);
   const subject = `Invoice ${invoice.invoice_number} from ${businessName}`;
