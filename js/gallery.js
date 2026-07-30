@@ -1,7 +1,7 @@
-const galleryGrid = document.querySelector("#gallery-grid");
-const galleryEmpty = document.querySelector("#gallery-empty");
-
 async function loadGallery() {
+  const galleryGrid = document.querySelector("#gallery-grid");
+  const galleryEmpty = document.querySelector("#gallery-empty");
+
   if (!galleryGrid) return;
 
   try {
@@ -10,7 +10,7 @@ async function loadGallery() {
 
     const data = await response.json();
     const photos = Array.isArray(data.photos) ? data.photos : [];
-    renderGallery(photos);
+    renderGallery(photos, galleryGrid, galleryEmpty);
   } catch {
     if (galleryEmpty) {
       galleryEmpty.hidden = false;
@@ -20,9 +20,7 @@ async function loadGallery() {
   }
 }
 
-function renderGallery(photos) {
-  if (!galleryGrid) return;
-
+function renderGallery(photos, galleryGrid, galleryEmpty) {
   galleryGrid.innerHTML = "";
 
   if (photos.length === 0) {
@@ -73,6 +71,3 @@ function initGallery() {
 }
 
 document.addEventListener("site:ready", initGallery);
-if (document.readyState !== "loading") {
-  initGallery();
-}

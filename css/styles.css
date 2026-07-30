@@ -17,6 +17,12 @@
   --font-display: "Fraunces", Georgia, serif;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html.is-loading #site-main {
   opacity: 0;
 }
@@ -430,6 +436,7 @@ textarea {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: start;
+  min-width: 0;
 }
 
 .about-grid p,
@@ -603,6 +610,7 @@ textarea {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
+  min-width: 0;
 }
 
 .contact-form label {
@@ -616,6 +624,7 @@ textarea {
 .contact-form select,
 .contact-form textarea {
   width: 100%;
+  max-width: 100%;
   padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
