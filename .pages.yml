@@ -1,6 +1,10 @@
 media:
-  input: gallery
-  output: /gallery
+  - name: gallery
+    input: gallery
+    output: /gallery
+  - name: social
+    input: social
+    output: /social
 
 content:
   - name: website
@@ -51,7 +55,8 @@ content:
                 label: Share image
                 type: image
                 options:
-                  path: gallery
+                  media: social
+                  path: social
               - name: imageAlt
                 label: Share image description
                 type: string

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Eddie Nelson  Painter and Decorator, Cambridge">
+  <rect width="1200" height="630" fill="#2b6cb0"/>
+  <rect x="48" y="48" width="1104" height="534" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2"/>
+
+  <text x="600" y="230" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" text-anchor="middle">Eddie Nelson</text>
+
+  <text x="600" y="300" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="400" text-anchor="middle" opacity="0.95">Painter &amp; decorator · plasterer · wall &amp; floor tiler</text>
+
+  <line x1="420" y1="350" x2="780" y2="350" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+
+  <text x="600" y="410" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="600" text-anchor="middle">07813 888 572</text>
+
+  <text x="600" y="465" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="400" text-anchor="middle" opacity="0.92">egnelson41@yahoo.co.uk</text>
+
+  <text x="600" y="535" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="400" text-anchor="middle" opacity="0.85">Cambridge · CB4 1ED</text>
+</svg>

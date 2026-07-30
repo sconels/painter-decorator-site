@@ -406,7 +406,7 @@ function applySocialMeta(site) {
   const description =
     social.description ??
     `${business.name} — professional painting and decorating for homes and businesses.`;
-  const imagePath = social.image ?? "/gallery/Exterior_After_1.jpeg";
+  const imagePath = social.image ?? "/social/og-image.png";
   const imageUrl = imagePath.startsWith("http")
     ? imagePath
     : `${siteUrl}${imagePath}`;
