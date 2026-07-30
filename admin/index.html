@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Invoices — E.g. Nelson</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/admin/admin.css" />
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <div class="container admin-header-inner">
+        <a class="logo" href="/">
+          <span class="logo-mark" aria-hidden="true"></span>
+          <span class="logo-text">E.g. Nelson</span>
+        </a>
+        <div class="admin-header-actions">
+          <span class="admin-badge">Invoices</span>
+          <button class="btn btn-secondary admin-logout" type="button" hidden>
+            Sign out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="admin-main container">
+      <section class="admin-panel" id="login-panel">
+        <div class="admin-card">
+          <p class="eyebrow">Private area</p>
+          <h1>Sign in</h1>
+          <p class="admin-lead">
+            Create and email invoices to customers. A copy is sent to your inbox automatically.
+          </p>
+          <form class="admin-form" id="login-form">
+            <label>
+              Password
+              <input type="password" name="password" autocomplete="current-password" required />
+            </label>
+            <button class="btn btn-primary btn-full" type="submit">Sign in</button>
+            <p class="form-message" id="login-message" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-panel" id="invoice-panel" hidden>
+        <div class="admin-grid">
+          <div class="admin-card">
+            <p class="eyebrow">New invoice</p>
+            <h1>Create invoice</h1>
+            <p class="admin-lead">
+              Fill in the job details, then send. The customer receives the invoice by email and you get a copy.
+            </p>
+
+            <form class="admin-form" id="invoice-form">
+              <label>
+                Customer name
+                <input type="text" name="customerName" autocomplete="name" required />
+              </label>
+
+              <label>
+                Customer address
+                <textarea name="customerAddress" rows="3" required></textarea>
+              </label>
+
+              <label>
+                Customer email
+                <input type="email" name="customerEmail" autocomplete="email" required />
+              </label>
+
+              <label>
+                Work completed
+                <textarea
+                  name="workDescription"
+                  rows="5"
+                  placeholder="e.g. Painted living room walls and ceiling, including prep and two coats."
+                  required
+                ></textarea>
+              </label>
+
+              <label>
+                Amount (£)
+                <input
+                  type="text"
+                  name="amount"
+                  inputmode="decimal"
+                  placeholder="350.00"
+                  required
+                />
+              </label>
+
+              <button class="btn btn-primary btn-full" type="submit" id="send-invoice-button">
+                Send invoice
+              </button>
+              <p class="form-message" id="invoice-message" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <p class="eyebrow">Recent invoices</p>
+            <h2>History</h2>
+            <p class="admin-lead">The last 50 invoices sent from this tool.</p>
+            <div class="invoice-history" id="invoice-history">
+              <p class="history-empty">No invoices yet.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="/admin/admin.js" type="module"></script>
+  </body>
+</html>
