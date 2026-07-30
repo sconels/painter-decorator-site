@@ -346,8 +346,12 @@ function renderContact(site) {
       </div>
       <form class="contact-form" action="https://formsubmit.co/${encodeURIComponent(business.email ?? "")}" method="POST">
         <input type="hidden" name="_subject" value="New website enquiry — ${escapeHtml(business.name)}" />
-        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_captcha" value="true" />
         <input type="hidden" name="_template" value="table" />
+        <label class="form-honeypot" aria-hidden="true">
+          Leave this empty
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+        </label>
         <label>
           Name
           <input type="text" name="name" autocomplete="name" required />

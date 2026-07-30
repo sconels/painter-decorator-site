@@ -665,11 +665,22 @@ textarea {
   font-weight: 600;
 }
 
+.form-honeypot {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .contact-form {
   padding: 1.5rem;
   display: grid;
   gap: 1rem;
   min-width: 0;
+  position: relative;
 }
 
 .contact-form label {
