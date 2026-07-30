@@ -250,6 +250,10 @@ function renderReviews(site) {
   </section>`;
 }
 
+function isValidMapEmbedUrl(url) {
+  return /https:\/\/(www\.)?google\.com\/maps\/embed/i.test(url);
+}
+
 function sanitizeMapEmbedUrl(value) {
   const raw = String(value ?? "").trim();
   if (!raw) return "";
@@ -261,18 +265,37 @@ function sanitizeMapEmbedUrl(value) {
     }
   }
 
+  if (raw.startsWith('src="') || raw.startsWith("src='")) {
+    return raw.replace(/^src=["']/, "").replace(/["']>.*$/, "").replace(/&amp;/g, "&");
+  }
+
   return raw.replace(/&amp;/g, "&");
+}
+
+function mountMap(site) {
+  const container = document.querySelector("#map-embed-container");
+  if (!container || !site.sections?.map || !site.map?.enabled) return;
+
+  const embedUrl = sanitizeMapEmbedUrl(site.map.embedUrl);
+  if (!isValidMapEmbedUrl(embedUrl)) {
+    container.innerHTML =
+      '<p class="map-error">Map unavailable. Use the link below to view the area in Google Maps.</p>';
+    return;
+  }
+
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = site.map.title || "Service area map";
+  iframe.loading = "lazy";
+  iframe.referrerPolicy = "strict-origin-when-cross-origin";
+  iframe.allowFullscreen = true;
+  container.appendChild(iframe);
 }
 
 function renderMap(site) {
   if (!site.sections?.map || !site.map?.enabled) return "";
 
   const map = site.map ?? {};
-  const embedUrl = sanitizeMapEmbedUrl(map.embedUrl);
-
-  if (!embedUrl.startsWith("https://www.google.com/maps/embed")) {
-    return "";
-  }
 
   return `<section class="section section-muted" id="area">
     <div class="container">
@@ -281,15 +304,12 @@ function renderMap(site) {
         <h2>${escapeHtml(map.title)}</h2>
         <p>${escapeHtml(map.description)}</p>
       </div>
-      <div class="map-embed">
-        <iframe
-          src="${escapeHtml(embedUrl)}"
-          title="${escapeHtml(map.title)}"
-          loading="lazy"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
-      </div>
+      <div class="map-embed" id="map-embed-container"></div>
+      <p class="map-fallback">
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Cambridge,+United+Kingdom" target="_blank" rel="noopener noreferrer">
+          Open Cambridge service area in Google Maps
+        </a>
+      </p>
     </div>
   </section>`;
 }
@@ -471,6 +491,7 @@ async function loadSiteContent() {
     ].join("");
 
     renderFooter(site);
+    mountMap(site);
     applySocialMeta(site);
     applyAnalytics(site);
 
