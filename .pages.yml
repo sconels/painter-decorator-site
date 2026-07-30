@@ -41,6 +41,9 @@ content:
             label: Social sharing preview
             type: object
             fields:
+              - name: title
+                label: Share title
+                type: string
               - name: description
                 label: Share description
                 type: text
@@ -49,6 +52,9 @@ content:
                 type: image
                 options:
                   path: gallery
+              - name: imageAlt
+                label: Share image description
+                type: string
 
           - name: analytics
             label: Analytics

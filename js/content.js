@@ -386,10 +386,23 @@ function setMetaTag(attribute, name, content) {
   tag.setAttribute("content", content);
 }
 
+function setLinkTag(rel, href) {
+  if (!href) return;
+
+  let tag = document.querySelector(`link[rel="${rel}"]`);
+  if (!tag) {
+    tag = document.createElement("link");
+    tag.setAttribute("rel", rel);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("href", href);
+}
+
 function applySocialMeta(site) {
   const business = site.business ?? {};
   const social = site.social ?? {};
   const siteUrl = (site.siteUrl ?? window.location.origin).replace(/\/$/, "");
+  const title = social.title ?? business.name ?? document.title;
   const description =
     social.description ??
     `${business.name} — professional painting and decorating for homes and businesses.`;
@@ -397,17 +410,24 @@ function applySocialMeta(site) {
   const imageUrl = imagePath.startsWith("http")
     ? imagePath
     : `${siteUrl}${imagePath}`;
+  const imageAlt =
+    social.imageAlt ?? `${business.name} project photo`;
 
   setMetaTag("name", "description", description);
+  setLinkTag("canonical", `${siteUrl}/`);
   setMetaTag("property", "og:type", "website");
-  setMetaTag("property", "og:title", business.name ?? document.title);
+  setMetaTag("property", "og:site_name", business.name ?? title);
+  setMetaTag("property", "og:locale", "en_GB");
+  setMetaTag("property", "og:title", title);
   setMetaTag("property", "og:description", description);
   setMetaTag("property", "og:url", `${siteUrl}/`);
   setMetaTag("property", "og:image", imageUrl);
+  setMetaTag("property", "og:image:alt", imageAlt);
   setMetaTag("name", "twitter:card", "summary_large_image");
-  setMetaTag("name", "twitter:title", business.name ?? document.title);
+  setMetaTag("name", "twitter:title", title);
   setMetaTag("name", "twitter:description", description);
   setMetaTag("name", "twitter:image", imageUrl);
+  setMetaTag("name", "twitter:image:alt", imageAlt);
 }
 
 function applyAnalytics(site) {
