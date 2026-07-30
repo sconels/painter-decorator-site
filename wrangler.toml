@@ -11,5 +11,5 @@ html_handling = "auto-trailing-slash"
 [[d1_databases]]
 binding = "DB"
 database_name = "painter-decorator-invoices"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "23dbb381-6b9a-4a4a-869d-add5159e5fc0"
 migrations_dir = "migrations"
