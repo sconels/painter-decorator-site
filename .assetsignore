@@ -1,0 +1,8 @@
+worker/
+migrations/
+wrangler.toml
+ADMIN_SETUP.md
+.wrangler/
+.dev.vars
+.dev.vars.*
+.git/

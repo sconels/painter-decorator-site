@@ -1,6 +1,9 @@
 name = "painter-decorator-site"
-compatibility_date = "2024-11-01"
+compatibility_date = "2026-07-22"
 main = "worker/index.js"
+
+[observability]
+enabled = true
 
 [assets]
 directory = "."
@@ -12,4 +15,3 @@ html_handling = "auto-trailing-slash"
 binding = "DB"
 database_name = "painter-decorator-invoices"
 database_id = "23dbb381-6b9a-4a4a-869d-add5159e5fc0"
-migrations_dir = "migrations"
