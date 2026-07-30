@@ -21,6 +21,8 @@ async function loadGallery() {
 }
 
 function renderGallery(photos) {
+  if (!galleryGrid) return;
+
   galleryGrid.innerHTML = "";
 
   if (photos.length === 0) {
@@ -64,4 +66,13 @@ function renderGallery(photos) {
   });
 }
 
-loadGallery();
+function initGallery() {
+  if (document.querySelector("#gallery-grid")) {
+    loadGallery();
+  }
+}
+
+document.addEventListener("site:ready", initGallery);
+if (document.readyState !== "loading") {
+  initGallery();
+}

@@ -1,2 +1,5 @@
 /data/gallery.json
   Cache-Control: public, max-age=0, must-revalidate
+
+/data/site.json
+  Cache-Control: public, max-age=0, must-revalidate

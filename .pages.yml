@@ -3,35 +3,273 @@ media:
   output: /gallery
 
 content:
-  - name: gallery
-    label: Gallery photos
-    type: file
-    path: data/gallery.json
-    format: json
-    fields:
-      - name: photos
-        label: Photos
-        type: object
-        list:
-          collapsible: true
-          summary: "{caption}"
+  - name: website
+    label: Website
+    type: group
+    items:
+      - name: site-content
+        label: Page content & design
+        type: file
+        path: data/site.json
+        format: json
         fields:
-          - name: image
-            label: Photo
-            type: image
-            options:
-              path: gallery
-          - name: caption
-            label: Caption
-            type: string
-          - name: layout
-            label: Size on page
-            type: select
-            options:
-              values:
-                - name: default
-                  label: Standard
-                - name: tall
-                  label: Tall
-                - name: wide
-                  label: Wide
+          - name: business
+            label: Business details
+            type: object
+            fields:
+              - name: name
+                label: Business name
+                type: string
+              - name: phone
+                label: Phone number
+                type: string
+              - name: email
+                label: Email address
+                type: string
+              - name: area
+                label: Service area
+                type: string
+              - name: tagline
+                label: Footer tagline
+                type: text
+
+          - name: design
+            label: Design
+            type: object
+            fields:
+              - name: colorTheme
+                label: Colour theme
+                type: select
+                options:
+                  values:
+                    - name: warm
+                      label: Warm terracotta
+                    - name: forest
+                      label: Forest green
+                    - name: coastal
+                      label: Coastal blue
+                    - name: slate
+                      label: Modern slate
+              - name: fontStyle
+                label: Font style
+                type: select
+                options:
+                  values:
+                    - name: classic
+                      label: Classic (current)
+                    - name: modern
+                      label: Modern sans-serif
+                    - name: traditional
+                      label: Traditional serif
+
+          - name: sections
+            label: Show or hide sections
+            type: object
+            fields:
+              - name: hero
+                label: Hero banner
+                type: boolean
+              - name: services
+                label: Services
+                type: boolean
+              - name: about
+                label: About
+                type: boolean
+              - name: gallery
+                label: Gallery
+                type: boolean
+              - name: reviews
+                label: Reviews
+                type: boolean
+              - name: contact
+                label: Contact
+                type: boolean
+
+          - name: hero
+            label: Hero section
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: headline
+                label: Main headline
+                type: text
+              - name: lead
+                label: Intro text
+                type: text
+              - name: primaryButton
+                label: Button text
+                type: string
+              - name: showVisual
+                label: Show colour swatch graphic
+                type: boolean
+              - name: visualTagline
+                label: Graphic tagline
+                type: string
+              - name: statValue
+                label: Experience number
+                type: string
+              - name: statLabel
+                label: Experience label
+                type: string
+              - name: trustPoints
+                label: Trust points
+                type: string
+                list: true
+
+          - name: services
+            label: Services section
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: description
+                label: Section intro
+                type: text
+              - name: items
+                label: Services
+                type: object
+                list:
+                  collapsible: true
+                  summary: "{title}"
+                fields:
+                  - name: title
+                    label: Service name
+                    type: string
+                  - name: description
+                    label: Description
+                    type: text
+
+          - name: about
+            label: About section
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: description
+                label: About text
+                type: text
+              - name: points
+                label: Bullet points
+                type: string
+                list: true
+              - name: showStats
+                label: Show stats panel
+                type: boolean
+              - name: stats
+                label: Stats
+                type: object
+                list:
+                  collapsible: true
+                  summary: "{value} — {label}"
+                fields:
+                  - name: value
+                    label: Number
+                    type: string
+                  - name: label
+                    label: Label
+                    type: string
+
+          - name: gallery
+            label: Gallery section text
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: description
+                label: Section intro
+                type: text
+
+          - name: reviews
+            label: Reviews section
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: items
+                label: Reviews
+                type: object
+                list:
+                  collapsible: true
+                  summary: "{name}"
+                fields:
+                  - name: quote
+                    label: Review text
+                    type: text
+                  - name: name
+                    label: Customer name
+                    type: string
+                  - name: detail
+                    label: Job type
+                    type: string
+
+          - name: contact
+            label: Contact section
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: description
+                label: Intro text
+                type: text
+              - name: formNote
+                label: Form note
+                type: text
+              - name: serviceOptions
+                label: Service dropdown options
+                type: string
+                list: true
+
+      - name: gallery-photos
+        label: Gallery photos
+        type: file
+        path: data/gallery.json
+        format: json
+        fields:
+          - name: photos
+            label: Photos
+            type: object
+            list:
+              collapsible: true
+              summary: "{caption}"
+            fields:
+              - name: image
+                label: Photo
+                type: image
+                options:
+                  path: gallery
+              - name: caption
+                label: Caption
+                type: string
+              - name: layout
+                label: Size on page
+                type: select
+                options:
+                  values:
+                    - name: default
+                      label: Standard
+                    - name: tall
+                      label: Tall
+                    - name: wide
+                      label: Wide

@@ -17,11 +17,23 @@
   --font-display: "Fraunces", Georgia, serif;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+html.is-loading #site-main {
+  opacity: 0;
 }
+
+html.is-ready #site-main {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.hero-grid-single {
+  grid-template-columns: 1fr;
+}
+
+.about-grid-single {
+  grid-template-columns: 1fr;
+}
+
 
 html {
   scroll-behavior: smooth;

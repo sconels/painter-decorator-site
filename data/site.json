@@ -1,0 +1,115 @@
+{
+  "business": {
+    "name": "E.g. Nelson, Painter and Decorator",
+    "phone": "07813 888572",
+    "email": "egnelson41@yahoo.co.uk",
+    "area": "Your town & surrounding villages",
+    "tagline": "Professional painting & decorating for local homes and businesses."
+  },
+  "design": {
+    "colorTheme": "warm",
+    "fontStyle": "classic"
+  },
+  "sections": {
+    "hero": true,
+    "services": true,
+    "about": true,
+    "gallery": true,
+    "reviews": true,
+    "contact": true
+  },
+  "hero": {
+    "eyebrow": "Local painter & decorator",
+    "headline": "Fresh finishes for homes and businesses you can be proud of.",
+    "lead": "Interior and exterior painting, wallpapering, and decorating — done neatly, on time, and with respect for your space.",
+    "primaryButton": "Request a free quote",
+    "showVisual": true,
+    "visualTagline": "Quality finishes, every time.",
+    "statValue": "15+",
+    "statLabel": "Years experience",
+    "trustPoints": [
+      "Fully insured",
+      "Free estimates",
+      "Clean & tidy work"
+    ]
+  },
+  "services": {
+    "eyebrow": "What we do",
+    "title": "Services tailored to your property",
+    "description": "From a single room refresh to full exterior repaints, we handle the prep, protection, and finish so the result lasts.",
+    "items": [
+      {
+        "title": "Interior painting",
+        "description": "Walls, ceilings, woodwork, and feature walls with careful prep and a flawless finish."
+      },
+      {
+        "title": "Exterior painting",
+        "description": "Weather-ready coatings for render, masonry, fascias, and woodwork to protect and refresh your home."
+      },
+      {
+        "title": "Wallpaper & feature walls",
+        "description": "Pattern matching, lining, and smooth hanging for a professional look that stays put."
+      },
+      {
+        "title": "Commercial decorating",
+        "description": "Offices, shops, and rental properties — minimal disruption, clear timelines, and tidy sites."
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Why choose us",
+    "title": "Reliable, local, and easy to work with",
+    "description": "E.g. Nelson, Painter and Decorator is a small, owner-run decorating business serving homeowners and local businesses. We turn up when we say we will, keep you updated, and leave your home clean at the end of each day.",
+    "points": [
+      "Honest advice on colours, finishes, and materials",
+      "Furniture and floors protected throughout the job",
+      "Fixed quotes with no hidden extras",
+      "Trusted by neighbours across the local area"
+    ],
+    "showStats": true,
+    "stats": [
+      { "value": "500+", "label": "Rooms refreshed" },
+      { "value": "4.9", "label": "Average review score" },
+      { "value": "100%", "label": "Quote satisfaction" }
+    ]
+  },
+  "gallery": {
+    "eyebrow": "Recent work",
+    "title": "Before & after transformations",
+    "description": "A selection of recent interior and exterior projects."
+  },
+  "reviews": {
+    "eyebrow": "Reviews",
+    "title": "What customers say",
+    "items": [
+      {
+        "quote": "Excellent work from start to finish. Very tidy, great communication, and the finish on our woodwork is perfect.",
+        "name": "Sarah M.",
+        "detail": "Interior repaint"
+      },
+      {
+        "quote": "Quoted quickly, started on time, and the exterior looks brand new. Would happily recommend to anyone locally.",
+        "name": "James T.",
+        "detail": "Exterior painting"
+      },
+      {
+        "quote": "Helpful colour advice and a flawless wallpaper finish. Felt completely stress-free throughout.",
+        "name": "Helen R.",
+        "detail": "Feature wall"
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Get in touch",
+    "title": "Request your free quote",
+    "description": "Tell us about your project and we will get back to you within one working day. No obligation, no pressure.",
+    "formNote": "Enquiries go straight to egnelson41@yahoo.co.uk. We aim to reply within one working day.",
+    "serviceOptions": [
+      "Interior painting",
+      "Exterior painting",
+      "Wallpaper / feature wall",
+      "Commercial decorating",
+      "Not sure yet"
+    ]
+  }
+}

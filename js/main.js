@@ -1,12 +1,14 @@
 const navToggle = document.querySelector(".nav-toggle");
-const siteNav = document.querySelector("#site-nav");
 const year = document.querySelector("#year");
 
 if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
-if (navToggle && siteNav) {
+function bindNavigation() {
+  const siteNav = document.querySelector("#site-nav");
+  if (!navToggle || !siteNav) return;
+
   navToggle.addEventListener("click", () => {
     const isOpen = siteNav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
@@ -20,3 +22,4 @@ if (navToggle && siteNav) {
   });
 }
 
+document.addEventListener("site:ready", bindNavigation);
