@@ -6,6 +6,14 @@
     "area": "Cambridge & surrounding areas",
     "tagline": "Professional painting & decorating for local homes and businesses."
   },
+  "siteUrl": "https://painter-decorator-site.snelson633.workers.dev",
+  "social": {
+    "description": "Professional painting and decorating in Cambridge and surrounding areas. Interior, exterior, and commercial work. Free quotes.",
+    "image": "/gallery/Exterior_After_1.jpeg"
+  },
+  "analytics": {
+    "cloudflareToken": "15476dc0e81e4861956898169e4a10af"
+  },
   "design": {
     "colorTheme": "forest",
     "fontStyle": "modern"
@@ -86,17 +94,7 @@
   },
   "reviews": {
     "eyebrow": "Reviews",
-    "title": "What customers say",
-    "emptyNote": "Customer reviews will appear here once they are collected.",
-    "items": []
-  },
-  "siteUrl": "https://painter-decorator-site.snelson633.workers.dev",
-  "social": {
-    "description": "Professional painting and decorating in Cambridge and surrounding areas. Interior, exterior, and commercial work. Free quotes.",
-    "image": "/gallery/Exterior_After_1.jpeg"
-  },
-  "analytics": {
-    "cloudflareToken": ""
+    "title": "What customers say"
   },
   "map": {
     "enabled": true,
