@@ -219,7 +219,8 @@ async function sendInvoiceEmail(env, invoice) {
 
   const businessName = env.BUSINESS_NAME || "E.g. Nelson, Painter and Decorator";
   const businessEmail = env.BUSINESS_EMAIL || "egnelson41@yahoo.co.uk";
-  const fromAddress = env.RESEND_FROM || `${businessName} <onboarding@resend.dev>`;
+  const fromAddress = env.RESEND_FROM || "onboarding@resend.dev";
+  const usingTestSender = fromAddress.includes("@resend.dev");
   const amount = formatMoney(invoice.amount_pence);
   const invoiceDate = formatDate(invoice.created_at);
   const subject = `Invoice ${invoice.invoice_number} from ${businessName}`;
@@ -233,24 +234,35 @@ async function sendInvoiceEmail(env, invoice) {
     invoiceDate,
   });
 
+  const payload = {
+    from: fromAddress,
+    to: [invoice.customer_email],
+    reply_to: businessEmail,
+    subject,
+    html,
+  };
+
+  // Resend's test sender only allows delivery to your Resend account email.
+  if (!usingTestSender) {
+    payload.bcc = [businessEmail];
+  }
+
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${env.RESEND_API_KEY}`,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      from: fromAddress,
-      to: [invoice.customer_email],
-      bcc: [businessEmail],
-      reply_to: businessEmail,
-      subject,
-      html,
-    }),
+    body: JSON.stringify(payload),
   });
 
   if (!response.ok) {
     const detail = await response.text();
+    if (usingTestSender && detail.includes("resend.dev")) {
+      throw new Error(
+        "Resend test mode only sends to the email address on your Resend account. Verify a domain in Resend to send to customers."
+      );
+    }
     throw new Error(detail || `Email provider returned ${response.status}`);
   }
 }

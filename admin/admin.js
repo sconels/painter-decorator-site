@@ -144,7 +144,10 @@ async function api(path, options = {}) {
   }
 
   if (!response.ok) {
-    throw new Error(data.error || "Something went wrong. Please try again.");
+    const message = data.detail
+      ? `${data.error} ${data.detail}`
+      : data.error || "Something went wrong. Please try again.";
+    throw new Error(message);
   }
 
   return data;
