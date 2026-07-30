@@ -81,6 +81,9 @@ content:
               - name: reviews
                 label: Reviews
                 type: boolean
+              - name: map
+                label: Service area map
+                type: boolean
               - name: contact
                 label: Contact
                 type: boolean
@@ -219,6 +222,26 @@ content:
                   - name: detail
                     label: Job type
                     type: string
+
+          - name: map
+            label: Service area map
+            type: object
+            fields:
+              - name: enabled
+                label: Show map
+                type: boolean
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: description
+                label: Section intro
+                type: text
+              - name: embedUrl
+                label: Google Maps embed URL
+                type: text
 
           - name: contact
             label: Contact section

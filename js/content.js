@@ -246,6 +246,31 @@ function renderReviews(site) {
   </section>`;
 }
 
+function renderMap(site) {
+  if (!site.sections?.map || !site.map?.enabled) return "";
+
+  const map = site.map ?? {};
+
+  return `<section class="section section-muted" id="area">
+    <div class="container">
+      <div class="section-heading">
+        <p class="eyebrow">${escapeHtml(map.eyebrow)}</p>
+        <h2>${escapeHtml(map.title)}</h2>
+        <p>${escapeHtml(map.description)}</p>
+      </div>
+      <div class="map-embed">
+        <iframe
+          src="${escapeHtml(map.embedUrl)}"
+          title="${escapeHtml(map.title)}"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+  </section>`;
+}
+
 function renderContact(site) {
   if (!site.sections?.contact) return "";
 
@@ -367,6 +392,7 @@ async function loadSiteContent() {
       renderAbout(site),
       renderGallerySection(site),
       renderReviews(site),
+      renderMap(site),
       renderContact(site),
     ].join("");
 

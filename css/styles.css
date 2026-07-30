@@ -645,6 +645,23 @@ textarea {
   color: var(--text-muted);
 }
 
+.map-embed {
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  aspect-ratio: 16 / 9;
+  min-height: 320px;
+  background: var(--surface);
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
 .site-footer {
   padding: 2.5rem 0;
   background: var(--navy);

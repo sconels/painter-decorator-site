@@ -3,7 +3,7 @@
     "name": "E.g. Nelson, Painter and Decorator",
     "phone": "07813 888572",
     "email": "egnelson41@yahoo.co.uk",
-    "area": "Your town & surrounding villages",
+    "area": "Cambridge & surrounding areas",
     "tagline": "Professional painting & decorating for local homes and businesses."
   },
   "design": {
@@ -16,6 +16,7 @@
     "about": true,
     "gallery": true,
     "reviews": true,
+    "map": true,
     "contact": true
   },
   "hero": {
@@ -103,6 +104,13 @@
         "detail": "Feature wall"
       }
     ]
+  },
+  "map": {
+    "enabled": true,
+    "eyebrow": "Service area",
+    "title": "Cambridge and surrounding villages",
+    "description": "Based in Cambridge and covering homes and businesses across the local area.",
+    "embedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d390014.4!2d0.0458766!3d52.205337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d0aab108de0c83%3A0xba83d16d3316d5c!2sCambridge%2C%20UK!5e0!3m2!1sen!2suk!4v1710000000000!5m2!1sen!2suk"
   },
   "contact": {
     "eyebrow": "Get in touch",
