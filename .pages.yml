@@ -33,6 +33,31 @@ content:
                 label: Footer tagline
                 type: text
 
+          - name: siteUrl
+            label: Website URL
+            type: string
+
+          - name: social
+            label: Social sharing preview
+            type: object
+            fields:
+              - name: description
+                label: Share description
+                type: text
+              - name: image
+                label: Share image
+                type: image
+                options:
+                  path: gallery
+
+          - name: analytics
+            label: Analytics
+            type: object
+            fields:
+              - name: cloudflareToken
+                label: Cloudflare Web Analytics token
+                type: string
+
           - name: design
             label: Design
             type: object
@@ -270,23 +295,45 @@ content:
         path: data/gallery.json
         format: json
         fields:
-          - name: photos
-            label: Photos
+          - name: items
+            label: Gallery items
             type: object
             list:
               collapsible: true
-              summary: "{caption}"
+              summary: "{title}{caption}"
             fields:
+              - name: type
+                label: Item type
+                type: select
+                options:
+                  values:
+                    - name: single
+                      label: Single photo
+                    - name: pair
+                      label: Before & after pair
+              - name: title
+                label: Project title (for pairs)
+                type: string
+              - name: caption
+                label: Caption (for single photos)
+                type: string
               - name: image
-                label: Photo
+                label: Photo (single)
                 type: image
                 options:
                   path: gallery
-              - name: caption
-                label: Caption
-                type: string
+              - name: before
+                label: Before photo
+                type: image
+                options:
+                  path: gallery
+              - name: after
+                label: After photo
+                type: image
+                options:
+                  path: gallery
               - name: layout
-                label: Size on page
+                label: Size on page (single photos)
                 type: select
                 options:
                   values:

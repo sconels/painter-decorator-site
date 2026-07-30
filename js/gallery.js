@@ -9,8 +9,8 @@ async function loadGallery() {
     if (!response.ok) throw new Error("Gallery data unavailable");
 
     const data = await response.json();
-    const photos = Array.isArray(data.photos) ? data.photos : [];
-    renderGallery(photos, galleryGrid, galleryEmpty);
+    const items = normalizeGalleryItems(data);
+    renderGallery(items, galleryGrid, galleryEmpty);
   } catch {
     if (galleryEmpty) {
       galleryEmpty.hidden = false;
@@ -20,10 +20,89 @@ async function loadGallery() {
   }
 }
 
-function renderGallery(photos, galleryGrid, galleryEmpty) {
+function normalizeGalleryItems(data) {
+  if (Array.isArray(data.items) && data.items.length > 0) {
+    return data.items;
+  }
+
+  if (!Array.isArray(data.photos)) {
+    return [];
+  }
+
+  return data.photos.map((photo) => ({
+    type: "single",
+    image: photo.image,
+    caption: photo.caption,
+    layout: photo.layout,
+  }));
+}
+
+function createSingleItem(item) {
+  const figure = document.createElement("figure");
+  figure.className = "gallery-item";
+
+  if (item.layout === "tall") {
+    figure.classList.add("gallery-item-tall");
+  } else if (item.layout === "wide") {
+    figure.classList.add("gallery-item-wide");
+  }
+
+  const img = document.createElement("img");
+  img.src = item.image;
+  img.alt = item.caption || "Painting and decorating project";
+  img.loading = "lazy";
+  figure.appendChild(img);
+
+  if (item.caption) {
+    const caption = document.createElement("figcaption");
+    caption.className = "gallery-caption";
+    caption.textContent = item.caption;
+    figure.appendChild(caption);
+  }
+
+  return figure;
+}
+
+function createPairItem(item) {
+  const figure = document.createElement("figure");
+  figure.className = "gallery-item gallery-item-pair";
+
+  figure.innerHTML = `
+    <div class="gallery-pair">
+      <div class="gallery-pair-header">
+        <h3>${escapeText(item.title || "Before & after")}</h3>
+      </div>
+      <div class="gallery-pair-grid">
+        <div class="gallery-pair-photo">
+          <span class="gallery-pair-label">Before</span>
+          <img src="${escapeAttr(item.before)}" alt="${escapeAttr(item.title || "Project")} — before" loading="lazy" />
+        </div>
+        <div class="gallery-pair-photo">
+          <span class="gallery-pair-label">After</span>
+          <img src="${escapeAttr(item.after)}" alt="${escapeAttr(item.title || "Project")} — after" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  `;
+
+  return figure;
+}
+
+function escapeText(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function escapeAttr(value) {
+  return escapeText(value).replaceAll('"', "&quot;");
+}
+
+function renderGallery(items, galleryGrid, galleryEmpty) {
   galleryGrid.innerHTML = "";
 
-  if (photos.length === 0) {
+  if (items.length === 0) {
     if (galleryEmpty) {
       galleryEmpty.hidden = false;
     }
@@ -34,33 +113,15 @@ function renderGallery(photos, galleryGrid, galleryEmpty) {
     galleryEmpty.hidden = true;
   }
 
-  photos.forEach((photo) => {
-    if (!photo.image) return;
-
-    const figure = document.createElement("figure");
-    figure.className = "gallery-item";
-
-    if (photo.layout === "tall") {
-      figure.classList.add("gallery-item-tall");
-    } else if (photo.layout === "wide") {
-      figure.classList.add("gallery-item-wide");
+  items.forEach((item) => {
+    if (item.type === "pair" && item.before && item.after) {
+      galleryGrid.appendChild(createPairItem(item));
+      return;
     }
 
-    const img = document.createElement("img");
-    img.src = photo.image;
-    img.alt = photo.caption || "Painting and decorating project";
-    img.loading = "lazy";
-
-    figure.appendChild(img);
-
-    if (photo.caption) {
-      const caption = document.createElement("figcaption");
-      caption.className = "gallery-caption";
-      caption.textContent = photo.caption;
-      figure.appendChild(caption);
+    if (item.image) {
+      galleryGrid.appendChild(createSingleItem(item));
     }
-
-    galleryGrid.appendChild(figure);
   });
 }
 

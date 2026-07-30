@@ -15,7 +15,7 @@
     "services": true,
     "about": true,
     "gallery": true,
-    "reviews": true,
+    "reviews": false,
     "map": true,
     "contact": true
   },
@@ -70,8 +70,8 @@
         "label": "Rooms refreshed"
       },
       {
-        "value": "4.9",
-        "label": "Average review score"
+        "value": "Cambridge",
+        "label": "Based locally"
       },
       {
         "value": "100%",
@@ -87,23 +87,16 @@
   "reviews": {
     "eyebrow": "Reviews",
     "title": "What customers say",
-    "items": [
-      {
-        "quote": "Excellent work from start to finish. Very tidy, great communication, and the finish on our woodwork is perfect.",
-        "name": "Sarah M.",
-        "detail": "Interior repaint"
-      },
-      {
-        "quote": "Quoted quickly, started on time, and the exterior looks brand new. Would happily recommend to anyone locally.",
-        "name": "James T.",
-        "detail": "Exterior painting"
-      },
-      {
-        "quote": "Helpful colour advice and a flawless wallpaper finish. Felt completely stress-free throughout.",
-        "name": "Helen R.",
-        "detail": "Feature wall"
-      }
-    ]
+    "emptyNote": "Customer reviews will appear here once they are collected.",
+    "items": []
+  },
+  "siteUrl": "https://painter-decorator-site.snelson633.workers.dev",
+  "social": {
+    "description": "Professional painting and decorating in Cambridge and surrounding areas. Interior, exterior, and commercial work. Free quotes.",
+    "image": "/gallery/Exterior_After_1.jpeg"
+  },
+  "analytics": {
+    "cloudflareToken": ""
   },
   "map": {
     "enabled": true,

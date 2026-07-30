@@ -1,49 +1,37 @@
 {
-  "photos": [
+  "items": [
     {
+      "type": "single",
       "image": "/gallery/BlueWall_1.jpeg",
-      "caption": "Living Room Repaint",
-      "layout": "default"
+      "caption": "Living room repaint"
     },
     {
+      "type": "single",
       "image": "/gallery/BlueWall_2.jpeg",
-      "caption": "Living Room Repaint",
-      "layout": "default"
+      "caption": "Living room detail"
     },
     {
-      "image": "/gallery/Exterior_Before_1.jpeg",
-      "caption": "Exterior Prior to Work",
-      "layout": "default"
+      "type": "pair",
+      "title": "Exterior repaint",
+      "before": "/gallery/Exterior_Before_1.jpeg",
+      "after": "/gallery/Exterior_After_1.jpeg"
     },
     {
-      "image": "/gallery/Exterior_After_1.jpeg",
-      "caption": "Exterior After Work",
-      "layout": "default"
+      "type": "pair",
+      "title": "Garden room refresh",
+      "before": "/gallery/Exterior_Before_2.jpeg",
+      "after": "/gallery/Exterior_After_2.jpeg"
     },
     {
-      "image": "/gallery/Exterior_Before_2.jpeg",
-      "caption": "Garden Room Prior",
-      "layout": "default"
+      "type": "pair",
+      "title": "Garden tiling",
+      "before": "/gallery/Exterior_Floor_Before1.jpeg",
+      "after": "/gallery/Exterior_Floor_After1.jpeg"
     },
     {
-      "image": "/gallery/Exterior_After_2.jpeg",
-      "caption": "Garden Room Refresh",
-      "layout": "default"
-    },
-    {
-      "image": "/gallery/Exterior_Floor_Before1.jpeg",
-      "caption": "Garden Tiling",
-      "layout": "default"
-    },
-    {
-      "image": "/gallery/Exterior_Floor_After1.jpeg",
-      "caption": "Garden Tiling",
-      "layout": "tall"
-    },
-    {
+      "type": "single",
       "image": "/gallery/Flooring_1.jpeg",
-      "caption": "Flooring",
-      "layout": "default"
+      "caption": "Flooring"
     }
   ]
 }

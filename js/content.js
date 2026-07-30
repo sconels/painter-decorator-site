@@ -223,7 +223,11 @@ function renderReviews(site) {
   if (!site.sections?.reviews) return "";
 
   const section = site.reviews ?? {};
-  const items = (section.items ?? [])
+  const reviewItems = section.items ?? [];
+
+  if (reviewItems.length === 0) return "";
+
+  const items = reviewItems
     .map(
       (item) => `<blockquote class="review-card">
         <p>“${escapeHtml(item.quote)}”</p>
@@ -331,6 +335,57 @@ function renderContact(site) {
   </section>`;
 }
 
+function setMetaTag(attribute, name, content) {
+  if (!content) return;
+
+  let tag = document.querySelector(`meta[${attribute}="${name}"]`);
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute(attribute, name);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute("content", content);
+}
+
+function applySocialMeta(site) {
+  const business = site.business ?? {};
+  const social = site.social ?? {};
+  const siteUrl = (site.siteUrl ?? window.location.origin).replace(/\/$/, "");
+  const description =
+    social.description ??
+    `${business.name} — professional painting and decorating for homes and businesses.`;
+  const imagePath = social.image ?? "/gallery/Exterior_After_1.jpeg";
+  const imageUrl = imagePath.startsWith("http")
+    ? imagePath
+    : `${siteUrl}${imagePath}`;
+
+  setMetaTag("name", "description", description);
+  setMetaTag("property", "og:type", "website");
+  setMetaTag("property", "og:title", business.name ?? document.title);
+  setMetaTag("property", "og:description", description);
+  setMetaTag("property", "og:url", `${siteUrl}/`);
+  setMetaTag("property", "og:image", imageUrl);
+  setMetaTag("name", "twitter:card", "summary_large_image");
+  setMetaTag("name", "twitter:title", business.name ?? document.title);
+  setMetaTag("name", "twitter:description", description);
+  setMetaTag("name", "twitter:image", imageUrl);
+}
+
+function applyAnalytics(site) {
+  const token = site.analytics?.cloudflareToken?.trim();
+  if (!token || document.querySelector("#cf-analytics")) return;
+
+  const script = document.createElement("script");
+  script.id = "cf-analytics";
+  script.defer = true;
+  script.src = "https://static.cloudflareinsights.com/beacon.min.js";
+  script.setAttribute(
+    "data-cf-beacon",
+    JSON.stringify({ token, spa: true })
+  );
+  document.body.appendChild(script);
+}
+
 function renderFooter(site) {
   const business = site.business ?? {};
   const links = [];
@@ -397,16 +452,10 @@ async function loadSiteContent() {
     ].join("");
 
     renderFooter(site);
+    applySocialMeta(site);
+    applyAnalytics(site);
 
     document.title = site.business?.name ?? document.title;
-
-    const description = document.querySelector('meta[name="description"]');
-    if (description && site.business?.name) {
-      description.setAttribute(
-        "content",
-        `${site.business.name} — professional painting and decorating for homes and businesses.`
-      );
-    }
 
     document.dispatchEvent(new CustomEvent("site:ready", { detail: site }));
   } catch (error) {
