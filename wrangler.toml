@@ -1,6 +1,7 @@
 name = "painter-decorator-site"
 compatibility_date = "2026-07-22"
 main = "worker/index.js"
+keep_vars = true
 
 [observability]
 enabled = true

@@ -28,6 +28,15 @@ async function handleApi(request, env, url) {
     return sessionStatus(request, env);
   }
 
+  if (path === "/api/setup-status" && request.method === "GET") {
+    return json({
+      adminPassword: Boolean(env.ADMIN_PASSWORD),
+      sessionSecret: Boolean(env.SESSION_SECRET),
+      resendApiKey: Boolean(env.RESEND_API_KEY),
+      database: Boolean(env.DB),
+    });
+  }
+
   const authed = await requireAuth(request, env);
   if (!authed.ok) {
     return authed.response;
