@@ -163,6 +163,7 @@ textarea {
   align-items: center;
   gap: 0.75rem;
   font-weight: 700;
+  min-width: 0;
 }
 
 .logo-mark {
@@ -178,6 +179,7 @@ textarea {
 .logo-text {
   font-family: var(--font-display);
   font-size: 1.15rem;
+  line-height: 1.2;
 }
 
 .site-nav {
@@ -800,11 +802,34 @@ textarea {
   .gallery-item-wide {
     grid-column: span 2;
   }
+
+  .hero-visual {
+    min-height: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .hero-card {
+    position: static;
+    width: 100%;
+  }
+
+  .hero-card-main {
+    inset: auto;
+  }
+
+  .hero-card-accent {
+    right: auto;
+    bottom: auto;
+    width: fit-content;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 720px) {
   .nav-toggle {
     display: inline-flex;
+    flex-shrink: 0;
   }
 
   .site-nav {
@@ -820,6 +845,7 @@ textarea {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
+    z-index: 60;
   }
 
   .site-nav.is-open {
@@ -827,11 +853,20 @@ textarea {
   }
 
   .site-header {
-    position: relative;
+    position: sticky;
   }
 
   .header-inner {
     position: relative;
+  }
+
+  .logo {
+    flex: 1 1 auto;
+    max-width: calc(100% - 3.5rem);
+  }
+
+  .logo-text {
+    font-size: clamp(0.9rem, 3.8vw, 1.05rem);
   }
 
   .hero-grid,
@@ -843,12 +878,12 @@ textarea {
     grid-template-columns: 1fr;
   }
 
-  .hero-visual {
-    min-height: 18rem;
+  .hero {
+    padding-top: 3rem;
   }
 
-  .hero-card-main {
-    inset: 0 1rem 2rem 0;
+  .hero-visual {
+    margin-top: 0.5rem;
   }
 
   .gallery-item-wide,
